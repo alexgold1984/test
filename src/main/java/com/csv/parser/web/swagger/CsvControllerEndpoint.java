@@ -30,7 +30,7 @@ public interface CsvControllerEndpoint {
       throws IOException;
 
   @Operation(summary = "Get opportunities", description = "Get all opportunities")
-  @ApiResponse(responseCode = "200", description = "Successful retrieval list of opportunities.", content = @Content())
+  @ApiResponse(responseCode = "200", description = "Successful retrieval list of opportunities.", content = @Content(schema = @Schema(implementation = OpportunityDto.class)))
   @ApiResponse(responseCode = "400", description = "Bad Request", content = @Content(schema = @Schema(implementation = WebErrorResponse.class)))
   ResponseEntity<List<OpportunityDto>> getAll(
       @Parameter(in = ParameterIn.QUERY, description = "filter parameter", required = false, style = ParameterStyle.SIMPLE) String team,
